@@ -1,4 +1,10 @@
 (function () {
+  const dummyData = {
+    fullName: 'Jane Smith',
+    firstName: 'Jane',
+    lastName: 'Smith',
+    email: 'jane.smith@example.com',
+  };
   /**
    * Keeps track of form fields that were already reported so we do not
    * print duplicates when new nodes are inserted into the DOM.
@@ -23,6 +29,28 @@
     );
   }
 
+  function autofillField(field) {
+    const label = getFieldLabel(field).toLowerCase();
+    const text = [label, field.name, field.id, field.placeholder]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+
+    if (field.readOnly || field.disabled) {
+      return;
+    }
+
+    if (/\b(first|given)\s*name\b/.test(text)) {
+      field.value = dummyData.firstName;
+    } else if (/\b(last|family|surname)\s*name?\b/.test(text)) {
+      field.value = dummyData.lastName;
+    } else if (text.includes('email')) {
+      field.value = dummyData.email;
+    } else if (/\bname\b/.test(text)) {
+      field.value = dummyData.fullName;
+    }
+  }
+
   /**
    * Logs any new form fields currently in the document.
    */
@@ -33,6 +61,7 @@
         seen.add(field);
         const label = getFieldLabel(field);
         console.log('Field found:', label, field);
+        autofillField(field);
       }
     });
   }

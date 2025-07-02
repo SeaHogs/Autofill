@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Form Field Monitor",
-  "version": "0.2",
-  "description": "Logs form fields on the current page, including dynamic ones",
+  "version": "0.3",
+  "description": "Logs and auto-fills common form fields with dummy data",
   "permissions": ["activeTab"],
   "content_scripts": [
     {
