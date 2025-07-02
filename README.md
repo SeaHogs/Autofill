@@ -11,6 +11,7 @@ also detected.
    `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked** and select this repository directory.
-4. Visit any webpage and open the browser console. The extension will print
-   a list of form fields (inputs, textareas or selects) found on that page,
-   including those loaded dynamically.
+4. Visit any webpage and open the browser console. The extension will
+   automatically fill common name and email fields with example data and
+   print a list of form fields (inputs, textareas or selects) found on that
+   page, including those loaded dynamically.
