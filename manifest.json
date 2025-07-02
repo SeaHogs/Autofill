@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Table Field Monitor",
-  "version": "0.1",
-  "description": "Prints all form fields inside tables on the current page",
+  "name": "Form Field Monitor",
+  "version": "0.2",
+  "description": "Logs form fields on the current page, including dynamic ones",
   "permissions": ["activeTab"],
   "content_scripts": [
     {
