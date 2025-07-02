@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Table Field Monitor",
+  "version": "0.1",
+  "description": "Prints all form fields inside tables on the current page",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
