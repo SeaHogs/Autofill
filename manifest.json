@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Form Field Monitor",
+  "version": "0.2",
+  "description": "Logs form fields on the current page, including dynamic ones",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
