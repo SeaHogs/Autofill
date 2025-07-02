@@ -1,6 +1,19 @@
-import * as use from '@tensorflow-models/universal-sentence-encoder';
-
 (async function () {
+  // Dynamically load dependencies since content scripts aren't modules
+  async function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  // Load TensorFlow.js and Universal Sentence Encoder
+  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs');
+  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder');
+
   // Dummy data for autofill
   const dummyData = {
     fullName: 'Jane Smith',
@@ -20,7 +33,7 @@ import * as use from '@tensorflow-models/universal-sentence-encoder';
     intentEmbeddings = await intentTensors.array();
   }
 
-  // cosine similarity
+  // Compute cosine similarity between two vectors
   function cosine(a, b) {
     let dot = 0, magA = 0, magB = 0;
     for (let i = 0; i < a.length; i++) {
