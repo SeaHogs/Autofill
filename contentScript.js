@@ -1,19 +1,4 @@
 (async function () {
-  // Dynamically load dependencies since content scripts aren't modules
-  async function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = src;
-      s.onload = resolve;
-      s.onerror = reject;
-      document.head.appendChild(s);
-    });
-  }
-
-  // Load TensorFlow.js and Universal Sentence Encoder
-  // Explicit versions keep the behavior predictable across installs
-  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0');
-  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder@1.3.3');
 
   // Dummy data for autofill
   const dummyData = {
