@@ -63,7 +63,7 @@
 
   // Derive a human-readable label for a field
   function getFieldLabel(field) {
-    const byId = field.id ? document.querySelector(`label[for=\"${field.id}\"]`) : null;
+    const byId = field.id && document.querySelector(`label[for="${field.id}"]`);
     const labelText = byId ? byId.textContent.trim() : '';
     return (
       field.getAttribute('aria-label') ||
