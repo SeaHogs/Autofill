@@ -11,8 +11,9 @@
   }
 
   // Load TensorFlow.js and Universal Sentence Encoder
-  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs');
-  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder');
+  // Explicit versions keep the behavior predictable across installs
+  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0');
+  await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder@1.3.3');
 
   // Dummy data for autofill
   const dummyData = {

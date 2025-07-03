@@ -15,3 +15,8 @@ also detected.
    automatically fill common name and email fields with example data and
    print a list of form fields (inputs, textareas or selects) found on that
    page, including those loaded dynamically.
+
+## Included libraries
+This extension dynamically loads TensorFlow.js version **4.16.0** and the
+Universal Sentence Encoder model version **1.3.3** from jsDelivr. Pinning
+specific versions ensures consistent behavior across installs.
